@@ -4,12 +4,81 @@ import Home from "@pages/Home";
 import Login from "@pages/Login";
 import SignUp from "@pages/SignUp";
 import ForgotPassword from "@pages/ForgotPassword";
+import Clothes from "@pages/Clothes";
+import ClotheDetail from "@pages/ClotheDetail";
+import BillingPage from "@pages/BillingPage";
+import TermsAndCondition from "@pages/TermsAndCondition";
+import PrivacyPolicy from "@pages/PrivacyPolicy";
+import ContactUs from "@pages/ContactUs";
+import About from "@pages/About";
+import Features from "@pages/Features";
+import Categories from "@pages/Categories";
+import Settings from "@pages/Settings";
+import Dashboard from "@pages/admin/Dashboard";
+import ClotheListings from "@pages/admin/ClotheListings";
 
 const routes = ROUTE_URLS;
 export const PUBLIC_ROUTES = [
   {
     path: routes.home,
     element: <Home />,
+    route: Route,
+  },
+  {
+    path: routes.clothes,
+    element: <Clothes />,
+    route: Route,
+  },
+  {
+    path: routes.clothe_detail,
+    element: <ClotheDetail />,
+    route: Route,
+  },
+  {
+    path: routes.billing,
+    element: <BillingPage />,
+    route: Route,
+  },
+    {
+    path: routes.terms_and_condition,
+    element: <TermsAndCondition />,
+    route: Route,
+  },
+      {
+    path: routes.privacy_policy,
+    element: <PrivacyPolicy />,
+    route: Route,
+  },
+    {
+    path: routes.contact,
+    element: <ContactUs />,
+    route: Route,
+  },
+      {
+    path: routes.about,
+    element: <About />,
+    route: Route,
+  },
+  {
+    path: routes.features,
+    element: <Features />,
+    route: Route,
+  },
+  
+
+   {
+    path: routes.categories,
+    element: <Categories />,
+    route: Route,
+  },
+     {
+    path: routes.settings,
+    element: <Settings />,
+    route: Route,
+  },
+    {
+    path: routes.dashboard,
+    element: <Dashboard />,
     route: Route,
   },
   {
@@ -27,6 +96,7 @@ export const PUBLIC_ROUTES = [
     element: <ForgotPassword />,
     route: Route,
   },
+
   {
     path: "/",
     name: "Root",

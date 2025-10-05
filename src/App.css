@@ -1,0 +1,106 @@
+/* Add to your App.css or a custom CSS file */
+body {
+  background-color: #F8F9FA !important;
+}
+
+.login-card {
+  border-radius: 18px !important;
+  box-shadow: 0 4px 24px rgba(45, 90, 136, 0.08) !important;
+  background: #fff !important;
+  padding: 2.5rem 2rem !important;
+}
+
+.btn-primary {
+  background-color: #2D5A88 !important;
+  border-color: #2D5A88 !important;
+  border-radius: 8px !important;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary:hover {
+  background-color: #1b3a5b !important;
+  border-color: #1b3a5b !important;
+}
+
+a {
+  color: #2D5A88 !important;
+  font-weight: 500;
+}
+
+a:hover {
+  color: #F7C873 !important;
+  text-decoration: underline !important;
+}
+
+.form-label {
+  font-weight: 500 !important;
+  color: #2D5A88 !important;
+}
+
+/* Add to your Login.css or global CSS */
+.header,
+.navbar,
+.navbar-default,
+.navbar-light,
+.navbar-dark {
+  background-color: #2D5A88 !important;
+  color: #fff !important;
+  border-bottom: none !important;
+}
+
+.header a,
+.navbar a,
+.navbar-brand,
+.nav-link {
+  color: #fff !important;
+}
+
+.header a:hover,
+.navbar a:hover,
+.navbar-brand:hover,
+.nav-link:hover {
+  color: #F7C873 !important; /* Accent color on hover */
+}
+
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu > .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  display: none;
+  position: absolute;
+}
+
+.dropdown-submenu:hover > .dropdown-menu {
+  display: block;
+}
+
+.dropdown-submenu > .dropdown-toggle::after {
+  content: " ▶";
+  float: right;
+}
+
+/* Ensure dropdown menu items are always visible */
+.dropdown-menu .dropdown-item {
+  color: #2D5A88 !important; /* or #fff for white text */
+  background-color: #fff !important;
+}
+
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu .dropdown-item:focus {
+  color: #2D5A88 !important;
+  background-color: #F7C873 !important;
+}
+.feature-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(45,90,136,0.18) !important;
+}
+
+.city-card:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 8px 24px rgba(45,90,136,0.14) !important;
+}

@@ -8,5 +8,16 @@ export const ROUTE_URLS={
     checkout: "/checkout",
     login: "/login",
     signup: "/signup",
-    forgot_password:"/forgot-password"
+    forgot_password:"/forgot-password",
+    clothes:"/clothes",
+    clothe_detail:"/clothes/:clothId",
+    billing:"/billing",
+    terms_and_condition:"/terms-and-condition",
+    privacy_policy:"/privacy-policy",
+    features: "/features",
+    pricing: "/pricing",
+    categories: "/categories",
+    add_category: "/add-category",
+    settings: "/settings",
+    dashboard: "/admin/dashboard"
 }

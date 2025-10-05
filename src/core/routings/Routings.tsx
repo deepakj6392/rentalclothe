@@ -11,9 +11,10 @@ const Routings = () => {
       <Footer />
     </>
   );
+
   return (
     <Routes>
-      <Route path="/" >
+      <Route path="/" element={<HeaderLayout />}>
         {
             PUBLIC_ROUTES.map((route, idx:number)=>
                 <Route path={route.path} element={ route.element} key={idx} />

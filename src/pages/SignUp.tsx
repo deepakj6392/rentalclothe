@@ -1,6 +1,8 @@
-import { Form, Button, Alert, Container, Row, Col } from "react-bootstrap";
+import { useState } from "react";
+import { Form, Button, Container, Row, Col, Card, Alert } from "react-bootstrap";
 import { Formik, Field, Form as FormikForm, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { Link } from "react-router-dom";
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string().required("Name is required"),
@@ -16,71 +18,111 @@ const SignupSchema = Yup.object().shape({
 });
 
 const Signup = () => {
+  const [signupSuccess, setSignupSuccess] = useState(false);
+
   return (
-    <Container className="mt-5">
-      <Row className="justify-content-md-center">
-        <Col md={6}>
-          <h2 className="text-center">Signup</h2>
-          <Formik
-            initialValues={{ name: "", email: "", password: "", confirmPassword: "" }}
-            validationSchema={SignupSchema}
-            onSubmit={(values, { setSubmitting }) => {
-              console.log("Signup Submitted", values);
-              setSubmitting(false);
-            }}
-          >
-            {({ isSubmitting }) => (
-              <FormikForm>
-                <Form.Group controlId="formName" className="mb-3">
-                  <Form.Label>Name</Form.Label>
-                  <Field
-                    type="text"
-                    name="name"
-                    className="form-control"
-                    placeholder="Enter name"
-                  />
-                  <ErrorMessage name="name" component={Alert} />
-                </Form.Group>
+    <Container fluid className="d-flex align-items-center justify-content-center min-vh-100 bg-light">
+      <Row className="w-100 justify-content-center">
+        <Col xs={12} sm={8} md={6} lg={4}>
+          <Card className="login-card shadow-lg border-0">
+            <Card.Body>
+              <h2 className="text-center mb-4">Sign Up</h2>
+              {signupSuccess ? (
+                <>
+                  <Alert variant="success" className="text-center">
+                    Verification email sent! Please check your inbox and verify your email to complete registration.
+                  </Alert>
+                  <div className="text-center mt-3">
+                    <Link to="/login" className="small text-decoration-none">
+                      Back to Login
+                    </Link>
+                  </div>
+                </>
+              ) : (
+                <Formik
+                  initialValues={{ name: "", email: "", password: "", confirmPassword: "" }}
+                  validationSchema={SignupSchema}
+                  onSubmit={(values, { setSubmitting, resetForm }) => {
+                    setTimeout(() => {
+                      setSignupSuccess(true);
+                      setSubmitting(false);
+                      resetForm();
+                    }, 800);
+                  }}
+                >
+                  {({ isSubmitting }) => (
+                    <FormikForm>
+                      <Form.Group controlId="formName" className="mb-3">
+                        <Form.Label>Name</Form.Label>
+                        <Field
+                          type="text"
+                          name="name"
+                          className="form-control"
+                          placeholder="Enter name"
+                        />
+                        <ErrorMessage name="name">
+                          {(msg) => <div className="text-danger small mt-1">{msg}</div>}
+                        </ErrorMessage>
+                      </Form.Group>
 
-                <Form.Group controlId="formEmail" className="mb-3">
-                  <Form.Label>Email address</Form.Label>
-                  <Field
-                    type="email"
-                    name="email"
-                    className="form-control"
-                    placeholder="Enter email"
-                  />
-                  <ErrorMessage name="email" component={Alert} />
-                </Form.Group>
+                      <Form.Group controlId="formEmail" className="mb-3">
+                        <Form.Label>Email address</Form.Label>
+                        <Field
+                          type="email"
+                          name="email"
+                          className="form-control"
+                          placeholder="Enter email"
+                        />
+                        <ErrorMessage name="email">
+                          {(msg) => <div className="text-danger small mt-1">{msg}</div>}
+                        </ErrorMessage>
+                      </Form.Group>
 
-                <Form.Group controlId="formPassword" className="mb-3">
-                  <Form.Label>Password</Form.Label>
-                  <Field
-                    type="password"
-                    name="password"
-                    className="form-control"
-                    placeholder="Enter password"
-                  />
-                  <ErrorMessage name="password" component={Alert} />
-                </Form.Group>
+                      <Form.Group controlId="formPassword" className="mb-3">
+                        <Form.Label>Password</Form.Label>
+                        <Field
+                          type="password"
+                          name="password"
+                          className="form-control"
+                          placeholder="Enter password"
+                        />
+                        <ErrorMessage name="password">
+                          {(msg) => <div className="text-danger small mt-1">{msg}</div>}
+                        </ErrorMessage>
+                      </Form.Group>
 
-                <Form.Group controlId="formConfirmPassword" className="mb-3">
-                  <Form.Label>Confirm Password</Form.Label>
-                  <Field
-                    type="password"
-                    name="confirmPassword"
-                    className="form-control"
-                    placeholder="Confirm password"
-                  />
-                  <ErrorMessage name="confirmPassword" component={Alert} />
-                </Form.Group>
+                      <Form.Group controlId="formConfirmPassword" className="mb-3">
+                        <Form.Label>Confirm Password</Form.Label>
+                        <Field
+                          type="password"
+                          name="confirmPassword"
+                          className="form-control"
+                          placeholder="Confirm password"
+                        />
+                        <ErrorMessage name="confirmPassword">
+                          {(msg) => <div className="text-danger small mt-1">{msg}</div>}
+                        </ErrorMessage>
+                      </Form.Group>
 
-                <Button variant="primary" type="submit" disabled={isSubmitting}>
-                  {isSubmitting ? "Signing up..." : "Signup"}
-                </Button>
-              </FormikForm>
-            )}
-          </Formik>
+                      <Button
+                        variant="primary"
+                        type="submit"
+                        className="w-100"
+                        disabled={isSubmitting}
+                      >
+                        {isSubmitting ? "Signing up..." : "Sign Up"}
+                      </Button>
+                      <div className="text-center mt-3">
+                        <Link to="/login" className="small text-decoration-none">
+                          Already have an account? Login
+                        </Link>
+                      </div>
+                    </FormikForm>
+                  )}
+                </Formik>
+              )}
+            </Card.Body>
+          </Card>
         </Col>
       </Row>
     </Container>
