@@ -1,4 +1,3 @@
-import React from "react";
 import { Modal, Card, Row, Col } from "react-bootstrap";
 
 const cities = [

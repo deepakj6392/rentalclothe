@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Container, Row, Col, Card, Form, Button, InputGroup, Badge, Pagination, Fade } from "react-bootstrap";
 import { Link, useSearchParams } from "react-router-dom";
 import "animate.css";
-import Header from "../components/common/header/Header";
 
 // Sample data with colors and sizes
 const allProducts = [
@@ -271,14 +270,14 @@ const Clothes = () => {
   };
 
   // Handle price range
-  const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>, idx: number) => {
+  const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>, idx: number) => {
     const val = Number(e.target.value);
     setPriceRange((prev) => (idx === 0 ? [val, prev[1]] : [prev[0], val]));
     setPage(1);
   };
 
   // Handle search
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setSearch(e.target.value);
     setPage(1);
   };

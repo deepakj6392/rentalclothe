@@ -15,7 +15,6 @@ import Features from "@pages/Features";
 import Categories from "@pages/Categories";
 import Settings from "@pages/Settings";
 import Dashboard from "@pages/admin/Dashboard";
-import ClotheListings from "@pages/admin/ClotheListings";
 
 const routes = ROUTE_URLS;
 export const PUBLIC_ROUTES = [

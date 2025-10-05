@@ -31,7 +31,7 @@ const Login = () => {
               <Formik
                 initialValues={{ email: "", password: "" }}
                 validationSchema={LoginSchema}
-                onSubmit={(values, { setSubmitting, resetForm }) => {
+                onSubmit={(_, { setSubmitting, resetForm }) => {
                   setTimeout(() => {
                     setLoginSuccess(true);
                     setSubmitting(false);

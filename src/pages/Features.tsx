@@ -1,4 +1,3 @@
-import React from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 // Bootstrap Icons are loaded via CSS, so use <i className="bi bi-..."></i>
 
@@ -69,7 +68,7 @@ const Features = () => {
         </p>
       </div>
       <Row className="g-4">
-        {features.map((f, idx) => (
+        {features.map((f) => (
           <Col md={4} key={f.title}>
             <Card
               className="h-100 shadow border-0 feature-card"

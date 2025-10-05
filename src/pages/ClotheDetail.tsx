@@ -1,4 +1,3 @@
-import React from "react";
 import { Container, Row, Col, Carousel, Card, Badge, Button, Alert } from "react-bootstrap";
 import SupportChat from "../components/SupportChat";
 import { useNavigate } from "react-router-dom";
